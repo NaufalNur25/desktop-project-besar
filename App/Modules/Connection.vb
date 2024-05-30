@@ -27,7 +27,7 @@ Module Connection
         Dim uid As String = If(config.ContainsKey("uid"), config("uid"), String.Empty)
         Dim pwd As String = If(config.ContainsKey("pwd"), config("pwd"), String.Empty)
         Dim database As String = If(config.ContainsKey("database"), config("database"), String.Empty)
-        Dim port As String = If(config.ContainsKey("port"), config("database"), "3306")
+        Dim port As String = If(config.ContainsKey("port"), config("port"), "3306")
 
         Dim myConnectionString As String = $"server={server};port={port};uid={uid};pwd={pwd};database={database}"
 
