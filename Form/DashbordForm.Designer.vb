@@ -28,7 +28,6 @@ Partial Class DashbordForm
         ConnectDatabaseToolStripMenuItem = New ToolStripMenuItem()
         closeDatabaseMenuItem = New ToolStripMenuItem()
         generateMenuItem = New ToolStripMenuItem()
-        ConnectionToolStripMenuItem1 = New ToolStripMenuItem()
         ExitToolStripMenuItem = New ToolStripMenuItem()
         MenuStrip1.SuspendLayout()
         SuspendLayout()
@@ -45,7 +44,7 @@ Partial Class DashbordForm
         ' 
         ' FileToolStripMenuItem
         ' 
-        FileToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ConnectionToolStripMenuItem, ConnectionToolStripMenuItem1, ExitToolStripMenuItem})
+        FileToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ConnectionToolStripMenuItem, ExitToolStripMenuItem})
         FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         FileToolStripMenuItem.Size = New Size(46, 24)
         FileToolStripMenuItem.Text = "File"
@@ -77,12 +76,6 @@ Partial Class DashbordForm
         generateMenuItem.Size = New Size(224, 26)
         generateMenuItem.Text = "Generate Database"
         ' 
-        ' ConnectionToolStripMenuItem1
-        ' 
-        ConnectionToolStripMenuItem1.Name = "ConnectionToolStripMenuItem1"
-        ConnectionToolStripMenuItem1.Size = New Size(224, 26)
-        ConnectionToolStripMenuItem1.Text = "Connection"
-        ' 
         ' ExitToolStripMenuItem
         ' 
         ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
@@ -109,7 +102,6 @@ Partial Class DashbordForm
     Friend WithEvents ConnectionToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ConnectDatabaseToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents closeDatabaseMenuItem As ToolStripMenuItem
-    Friend WithEvents ConnectionToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents generateMenuItem As ToolStripMenuItem
 

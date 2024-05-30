@@ -2,8 +2,6 @@
 
 Module Database
     Public Sub CreateTables()
-        Connection.openConnection()
-
         Dim createUserTable As String = "CREATE TABLE IF NOT EXISTS users (" _
             & "id INT AUTO_INCREMENT PRIMARY KEY," _
             & "name VARCHAR(100) NOT NULL," _
@@ -30,16 +28,16 @@ Module Database
             & "game_id INT NOT NULL," _
             & "review TEXT," _
             & "rating INT CHECK (rating >= 1 AND rating <= 5)," _
-            & "FOREIGN KEY (user_id) REFERENCES User(id)," _
-            & "FOREIGN KEY (game_id) REFERENCES Game(id)" _
+            & "FOREIGN KEY (user_id) REFERENCES users(id)," _
+            & "FOREIGN KEY (game_id) REFERENCES games(id)" _
             & ");"
 
         Dim createWishlistTable As String = "CREATE TABLE IF NOT EXISTS wishlists (" _
             & "id INT AUTO_INCREMENT PRIMARY KEY," _
             & "user_id INT NOT NULL," _
             & "game_id INT NOT NULL," _
-            & "FOREIGN KEY (user_id) REFERENCES User(id)," _
-            & "FOREIGN KEY (game_id) REFERENCES Game(id)" _
+            & "FOREIGN KEY (user_id) REFERENCES users(id)," _
+            & "FOREIGN KEY (game_id) REFERENCES games(id)" _
             & ");"
 
         Try
@@ -58,8 +56,6 @@ Module Database
             MessageBox.Show("Tables created successfully")
         Catch ex As MySqlException
             MessageBox.Show(ex.Message)
-        Finally
-            Connection.closeConnection()
         End Try
     End Sub
 End Module

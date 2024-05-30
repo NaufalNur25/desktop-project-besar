@@ -1,6 +1,4 @@
 ﻿Imports MySql.Data.MySqlClient
-Imports Org.BouncyCastle.Math.EC.ECCurve
-Imports Org.BouncyCastle.Tls
 
 Public Class DatabaseConfigForm
     Public Sub New()
@@ -68,7 +66,7 @@ Public Class DatabaseConfigForm
     End Sub
 
     Private Sub TestConnection(server As String, port As String, uid As String, pwd As String, database As String)
-        Dim myConnectionString As String = $"server={server}:{port};uid={uid};pwd={pwd};database={database}"
+        Dim myConnectionString As String = $"server={server};port={port};uid={uid};pwd={pwd};database={database}"
         Dim stopwatch As Stopwatch = Stopwatch.StartNew()
 
         Try
