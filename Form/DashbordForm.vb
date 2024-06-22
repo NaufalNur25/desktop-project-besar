@@ -12,9 +12,8 @@ Public Class DashbordForm
         AddHandler MyBase.Load, AddressOf dashbordForm
 
         ' Database & Connetion
-        AddHandler closeDatabaseMenuItem.Click, AddressOf ToolStripMenuCloseConnection
         AddHandler generateMenuItem.Click, AddressOf ToolStripMenuGenerateDatabase
-        AddHandler FileToolStripMenuItem.Click, AddressOf databaseCheck
+        AddHandler RefreshToolStripMenuItem.Click, AddressOf RefreshMenu
 
         ' Form
         AddHandler ConnectDatabaseToolStripMenuItem.Click, AddressOf OpenConnectDatabaseForm
@@ -22,7 +21,7 @@ Public Class DashbordForm
     End Sub
 
     Private Sub dashbordForm()
-        ' todo
+        Call databaseCheck()
     End Sub
 
     Private Sub databaseCheck()
@@ -49,7 +48,6 @@ Public Class DashbordForm
     End Sub
 
     Private Sub ToolStripMenuDatabaseRule(Optional isEnable As Boolean = True)
-        closeDatabaseMenuItem.Enabled = isEnable
         generateMenuItem.Enabled = isEnable
     End Sub
 
@@ -61,5 +59,9 @@ Public Class DashbordForm
 
     Private Sub ExitApp()
         Me.Close()
+    End Sub
+
+    Private Sub RefreshMenu()
+        Call databaseCheck()
     End Sub
 End Class
