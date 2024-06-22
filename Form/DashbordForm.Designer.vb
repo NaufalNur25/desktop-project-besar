@@ -26,9 +26,9 @@ Partial Class DashbordForm
         FileToolStripMenuItem = New ToolStripMenuItem()
         ConnectionToolStripMenuItem = New ToolStripMenuItem()
         ConnectDatabaseToolStripMenuItem = New ToolStripMenuItem()
-        closeDatabaseMenuItem = New ToolStripMenuItem()
         generateMenuItem = New ToolStripMenuItem()
         ExitToolStripMenuItem = New ToolStripMenuItem()
+        RefreshToolStripMenuItem = New ToolStripMenuItem()
         MenuStrip1.SuspendLayout()
         SuspendLayout()
         ' 
@@ -51,7 +51,7 @@ Partial Class DashbordForm
         ' 
         ' ConnectionToolStripMenuItem
         ' 
-        ConnectionToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ConnectDatabaseToolStripMenuItem, closeDatabaseMenuItem, generateMenuItem})
+        ConnectionToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ConnectDatabaseToolStripMenuItem, generateMenuItem, RefreshToolStripMenuItem})
         ConnectionToolStripMenuItem.Name = "ConnectionToolStripMenuItem"
         ConnectionToolStripMenuItem.Size = New Size(224, 26)
         ConnectionToolStripMenuItem.Text = "Connection"
@@ -61,13 +61,6 @@ Partial Class DashbordForm
         ConnectDatabaseToolStripMenuItem.Name = "ConnectDatabaseToolStripMenuItem"
         ConnectDatabaseToolStripMenuItem.Size = New Size(224, 26)
         ConnectDatabaseToolStripMenuItem.Text = "Connect Database"
-        ' 
-        ' closeDatabaseMenuItem
-        ' 
-        closeDatabaseMenuItem.Enabled = False
-        closeDatabaseMenuItem.Name = "closeDatabaseMenuItem"
-        closeDatabaseMenuItem.Size = New Size(224, 26)
-        closeDatabaseMenuItem.Text = "Close Database"
         ' 
         ' generateMenuItem
         ' 
@@ -81,6 +74,12 @@ Partial Class DashbordForm
         ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
         ExitToolStripMenuItem.Size = New Size(224, 26)
         ExitToolStripMenuItem.Text = "Exit"
+        ' 
+        ' RefreshToolStripMenuItem
+        ' 
+        RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
+        RefreshToolStripMenuItem.Size = New Size(224, 26)
+        RefreshToolStripMenuItem.Text = "Refresh"
         ' 
         ' DashbordForm
         ' 
@@ -101,8 +100,8 @@ Partial Class DashbordForm
     Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ConnectionToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ConnectDatabaseToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents closeDatabaseMenuItem As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents generateMenuItem As ToolStripMenuItem
+    Friend WithEvents RefreshToolStripMenuItem As ToolStripMenuItem
 
 End Class
