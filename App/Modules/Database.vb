@@ -7,6 +7,7 @@ Module Database
             & "name VARCHAR(100) NOT NULL," _
             & "email VARCHAR(100) NOT NULL UNIQUE," _
             & "password VARCHAR(255) NOT NULL" _
+            & "role VARCHAR(100) NOT NULL DEFAULT 'user'" _
             & ");"
 
         Dim createGameTable As String = "CREATE TABLE IF NOT EXISTS games (" _

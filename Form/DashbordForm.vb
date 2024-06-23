@@ -4,6 +4,7 @@ Imports MySql.Data.MySqlClient
 Public Class DashbordForm
     Dim isConnect As Boolean = False
 
+
     Public Sub New()
         ' This call is required by the designer.
         InitializeComponent()
