@@ -6,7 +6,7 @@ Module Database
             & "id INT AUTO_INCREMENT PRIMARY KEY," _
             & "name VARCHAR(100) NOT NULL," _
             & "email VARCHAR(100) NOT NULL UNIQUE," _
-            & "password VARCHAR(255) NOT NULL" _
+            & "password VARCHAR(255) NOT NULL," _
             & "role VARCHAR(100) NOT NULL DEFAULT 'user'" _
             & ");"
 
