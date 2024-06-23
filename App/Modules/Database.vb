@@ -4,7 +4,7 @@ Module Database
     Public Sub CreateTables()
         Dim createUserTable As String = "CREATE TABLE IF NOT EXISTS users (" _
             & "id INT AUTO_INCREMENT PRIMARY KEY," _
-            & "name VARCHAR(100) NOT NULL," _
+            & "username VARCHAR(100) NOT NULL," _
             & "email VARCHAR(100) NOT NULL UNIQUE," _
             & "password VARCHAR(255) NOT NULL," _
             & "role VARCHAR(100) NOT NULL DEFAULT 'user'" _
