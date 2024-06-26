@@ -13,17 +13,25 @@ Public Class LoginForm
         AddHandler BtLogin.Click, AddressOf Login
     End Sub
 
-    Private Sub Login()
+    Public Sub Login()
         Dim email = TxtEmail.Text
         Dim password = TxtPassword.Text
         Dim hashedPassword = GetHashedPassword(password)
 
         Dim auth As New Auth()
-        Dim loginSuccessful = auth.Login(email, hashedPassword)
+        Dim result = auth.Login(email, hashedPassword)
+        Dim loginSuccessful As Boolean = result.Item1
+        Dim username As String = result.Item2
 
         If loginSuccessful Then
+            ' Simpan fullname di session
+            Dim sessionConfig As New SessionConfig()
+            sessionConfig.setSession("username", username)
+            sessionConfig.SaveConfig()
+
             MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
+            Me.Close()
         Else
             MessageBox.Show("Invalid email or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If

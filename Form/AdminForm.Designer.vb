@@ -43,43 +43,49 @@ Partial Class AdminForm
         ' dgvUsers
         ' 
         dgvUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        dgvUsers.Location = New Point(35, 173)
+        dgvUsers.Location = New Point(40, 231)
+        dgvUsers.Margin = New Padding(3, 4, 3, 4)
         dgvUsers.Name = "dgvUsers"
-        dgvUsers.Size = New Size(486, 150)
+        dgvUsers.RowHeadersWidth = 51
+        dgvUsers.Size = New Size(555, 200)
         dgvUsers.TabIndex = 1
         ' 
         ' btnRefresh
         ' 
-        btnRefresh.Location = New Point(35, 347)
+        btnRefresh.Location = New Point(40, 463)
+        btnRefresh.Margin = New Padding(3, 4, 3, 4)
         btnRefresh.Name = "btnRefresh"
-        btnRefresh.Size = New Size(75, 23)
+        btnRefresh.Size = New Size(86, 31)
         btnRefresh.TabIndex = 2
         btnRefresh.Text = "refresh"
         btnRefresh.UseVisualStyleBackColor = True
         ' 
         ' btnAdd
         ' 
-        btnAdd.Location = New Point(175, 347)
+        btnAdd.Location = New Point(200, 463)
+        btnAdd.Margin = New Padding(3, 4, 3, 4)
         btnAdd.Name = "btnAdd"
-        btnAdd.Size = New Size(75, 23)
+        btnAdd.Size = New Size(86, 31)
         btnAdd.TabIndex = 3
         btnAdd.Text = "add"
         btnAdd.UseVisualStyleBackColor = True
         ' 
         ' btnEdit
         ' 
-        btnEdit.Location = New Point(316, 347)
+        btnEdit.Location = New Point(361, 463)
+        btnEdit.Margin = New Padding(3, 4, 3, 4)
         btnEdit.Name = "btnEdit"
-        btnEdit.Size = New Size(75, 23)
+        btnEdit.Size = New Size(86, 31)
         btnEdit.TabIndex = 4
         btnEdit.Text = "edit"
         btnEdit.UseVisualStyleBackColor = True
         ' 
         ' btnDelete
         ' 
-        btnDelete.Location = New Point(446, 347)
+        btnDelete.Location = New Point(510, 463)
+        btnDelete.Margin = New Padding(3, 4, 3, 4)
         btnDelete.Name = "btnDelete"
-        btnDelete.Size = New Size(75, 23)
+        btnDelete.Size = New Size(86, 31)
         btnDelete.TabIndex = 5
         btnDelete.Text = "hapus"
         btnDelete.UseVisualStyleBackColor = True
@@ -87,94 +93,99 @@ Partial Class AdminForm
         ' txtRole
         ' 
         txtRole.FormattingEnabled = True
-        txtRole.Location = New Point(150, 139)
+        txtRole.Location = New Point(171, 185)
+        txtRole.Margin = New Padding(3, 4, 3, 4)
         txtRole.Name = "txtRole"
-        txtRole.Size = New Size(62, 23)
+        txtRole.Size = New Size(166, 28)
         txtRole.TabIndex = 8
         ' 
         ' txtEmail
         ' 
-        txtEmail.Location = New Point(150, 81)
+        txtEmail.Location = New Point(171, 108)
+        txtEmail.Margin = New Padding(3, 4, 3, 4)
         txtEmail.Name = "txtEmail"
-        txtEmail.Size = New Size(146, 23)
+        txtEmail.Size = New Size(166, 27)
         txtEmail.TabIndex = 7
         ' 
         ' txtUsername
         ' 
-        txtUsername.Location = New Point(150, 52)
+        txtUsername.Location = New Point(171, 69)
+        txtUsername.Margin = New Padding(3, 4, 3, 4)
         txtUsername.Name = "txtUsername"
-        txtUsername.Size = New Size(146, 23)
+        txtUsername.Size = New Size(166, 27)
         txtUsername.TabIndex = 6
         ' 
         ' Id
         ' 
         Id.BorderStyle = BorderStyle.Fixed3D
-        Id.Font = New Font("Tahoma", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Id.Location = New Point(38, 26)
+        Id.Font = New Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Id.Location = New Point(43, 35)
         Id.Name = "Id"
-        Id.Size = New Size(96, 21)
+        Id.Size = New Size(110, 28)
         Id.TabIndex = 15
         Id.Text = "ID"
         ' 
         ' txtId
         ' 
-        txtId.Location = New Point(150, 24)
+        txtId.Location = New Point(171, 32)
+        txtId.Margin = New Padding(3, 4, 3, 4)
         txtId.Name = "txtId"
-        txtId.Size = New Size(25, 23)
+        txtId.Size = New Size(28, 27)
         txtId.TabIndex = 16
         ' 
         ' Label3
         ' 
         Label3.BorderStyle = BorderStyle.Fixed3D
-        Label3.Font = New Font("Tahoma", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label3.Location = New Point(38, 83)
+        Label3.Font = New Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label3.Location = New Point(43, 111)
         Label3.Name = "Label3"
-        Label3.Size = New Size(96, 21)
+        Label3.Size = New Size(110, 28)
         Label3.TabIndex = 19
         Label3.Text = "Email"
         ' 
         ' Label4
         ' 
         Label4.BorderStyle = BorderStyle.Fixed3D
-        Label4.Font = New Font("Tahoma", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label4.Location = New Point(38, 54)
+        Label4.Font = New Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label4.Location = New Point(43, 72)
         Label4.Name = "Label4"
-        Label4.Size = New Size(96, 21)
+        Label4.Size = New Size(110, 28)
         Label4.TabIndex = 20
         Label4.Text = "Username"
         ' 
         ' Label5
         ' 
         Label5.BorderStyle = BorderStyle.Fixed3D
-        Label5.Font = New Font("Tahoma", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label5.Location = New Point(38, 141)
+        Label5.Font = New Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label5.Location = New Point(43, 188)
         Label5.Name = "Label5"
-        Label5.Size = New Size(96, 21)
+        Label5.Size = New Size(110, 28)
         Label5.TabIndex = 21
         Label5.Text = "Role"
         ' 
         ' txtPassword
         ' 
-        txtPassword.Location = New Point(150, 110)
+        txtPassword.Location = New Point(171, 147)
+        txtPassword.Margin = New Padding(3, 4, 3, 4)
         txtPassword.Name = "txtPassword"
-        txtPassword.Size = New Size(146, 23)
+        txtPassword.Size = New Size(166, 27)
         txtPassword.TabIndex = 10
         ' 
         ' Label2
         ' 
         Label2.BorderStyle = BorderStyle.Fixed3D
-        Label2.Font = New Font("Tahoma", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label2.Location = New Point(38, 112)
+        Label2.Font = New Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label2.Location = New Point(43, 149)
         Label2.Name = "Label2"
-        Label2.Size = New Size(96, 21)
+        Label2.Size = New Size(110, 28)
         Label2.TabIndex = 18
         Label2.Text = "Password"
         ' 
         ' AdminForm
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(528, 450)
+        ClientSize = New Size(626, 600)
         Controls.Add(Label5)
         Controls.Add(Label4)
         Controls.Add(Label3)
@@ -190,6 +201,7 @@ Partial Class AdminForm
         Controls.Add(btnAdd)
         Controls.Add(btnRefresh)
         Controls.Add(dgvUsers)
+        Margin = New Padding(3, 4, 3, 4)
         Name = "AdminForm"
         StartPosition = FormStartPosition.CenterScreen
         Text = "AdminForm"

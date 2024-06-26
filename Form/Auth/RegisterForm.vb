@@ -11,6 +11,9 @@ Public Class RegisterForm
         Dim Email As String = EmailLabel.Text
         Dim password As String = PasswordLabel.Text
 
+        Dim loginForm = New LoginForm
+        Call loginForm.Login()
+
         ' Hash password sebelum menyimpannya ke database (opsional)
         Dim hashedPassword As String = GetHashedPassword(password)
 

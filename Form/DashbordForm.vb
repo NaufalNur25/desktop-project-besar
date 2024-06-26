@@ -1,5 +1,4 @@
-﻿
-Imports MySql.Data.MySqlClient
+﻿Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
 
 Public Class DashbordForm
     Dim isConnect As Boolean = False
@@ -11,6 +10,8 @@ Public Class DashbordForm
 
         ' Add any initialization after the InitializeComponent() call.
         AddHandler MyBase.Load, AddressOf dashbordForm
+        AddHandler BtLogout.Click, AddressOf Logout
+        AddHandler RefreshForm.Click, AddressOf RefreshDashboard
 
         ' Database & Connetion
         AddHandler generateMenuItem.Click, AddressOf ToolStripMenuGenerateDatabase
@@ -23,12 +24,16 @@ Public Class DashbordForm
         AddHandler ExitToolStripMenuItem.Click, AddressOf ExitApp
     End Sub
 
-    Private Sub dashbordForm()
+    Public Sub dashbordForm()
         Call databaseCheck()
+
+        ' Dashboard Rule
+        Call databaseCheck()
+        Call usernameCheck()
     End Sub
 
     Private Sub databaseCheck()
-        openConnection(False)
+        OpenConnection(False)
 
         If IsConnectionOpen() Then
             ToolStripMenuDatabaseRule()
@@ -38,15 +43,30 @@ Public Class DashbordForm
         ToolStripMenuDatabaseRule(False)
     End Sub
 
+    Public Sub usernameCheck()
+        Dim sessionConfig As New SessionConfig()
+        Dim username As String = sessionConfig.getSession("username")
+
+        If username IsNot Nothing Then
+            LabelUsername.Text = username
+            BtLogout.Enabled = True
+            LoginToolStripMenuItem.Visible = False
+        Else
+            LabelUsername.Text = ""
+            BtLogout.Enabled = False
+            LoginToolStripMenuItem.Visible = True
+        End If
+    End Sub
+
     Private Sub ToolStripMenuCloseConnection()
-        closeConnection()
-        deleteConfig()
+        CloseConnection()
+        DeleteConfig()
 
         Call databaseCheck()
     End Sub
 
     Private Sub ToolStripMenuGenerateDatabase()
-        openConnection()
+        OpenConnection()
         CreateTables()
     End Sub
 
@@ -75,8 +95,29 @@ Public Class DashbordForm
 
         registerForm.ShowDialog()
     End Sub
+    Private Sub Logout()
+        Dim sessionConfig As New SessionConfig()
+        sessionConfig.removeSession("username")
+        sessionConfig.SaveConfig()
+
+        MessageBox.Show("Successfully logged out", "Logout", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Me.dashbordForm()
+    End Sub
 
     Private Sub RefreshMenu()
         Call databaseCheck()
+    End Sub
+
+    Private Sub RefreshDashboard()
+        Call dashbordForm()
+    End Sub
+
+    Sub childform(ByVal panel As Form)
+        PanelDashboard.Controls.Clear()
+        panel.TopLevel = False
+        panel.FormBorderStyle = FormBorderStyle.None
+        panel.Dock = DockStyle.Fill
+        PanelDashboard.Controls.Add(panel)
+        panel.Show()
     End Sub
 End Class
