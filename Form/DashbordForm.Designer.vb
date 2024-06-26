@@ -27,8 +27,11 @@ Partial Class DashbordForm
         ConnectionToolStripMenuItem = New ToolStripMenuItem()
         ConnectDatabaseToolStripMenuItem = New ToolStripMenuItem()
         generateMenuItem = New ToolStripMenuItem()
-        ExitToolStripMenuItem = New ToolStripMenuItem()
         RefreshToolStripMenuItem = New ToolStripMenuItem()
+        LoginToolStripMenuItem = New ToolStripMenuItem()
+        LoginToolStripMenu = New ToolStripMenuItem()
+        RegisterToolStripMenu = New ToolStripMenuItem()
+        ExitToolStripMenuItem = New ToolStripMenuItem()
         MenuStrip1.SuspendLayout()
         SuspendLayout()
         ' 
@@ -44,7 +47,7 @@ Partial Class DashbordForm
         ' 
         ' FileToolStripMenuItem
         ' 
-        FileToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ConnectionToolStripMenuItem, ExitToolStripMenuItem})
+        FileToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ConnectionToolStripMenuItem, LoginToolStripMenuItem, ExitToolStripMenuItem})
         FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         FileToolStripMenuItem.Size = New Size(46, 24)
         FileToolStripMenuItem.Text = "File"
@@ -59,27 +62,46 @@ Partial Class DashbordForm
         ' ConnectDatabaseToolStripMenuItem
         ' 
         ConnectDatabaseToolStripMenuItem.Name = "ConnectDatabaseToolStripMenuItem"
-        ConnectDatabaseToolStripMenuItem.Size = New Size(224, 26)
+        ConnectDatabaseToolStripMenuItem.Size = New Size(219, 26)
         ConnectDatabaseToolStripMenuItem.Text = "Connect Database"
         ' 
         ' generateMenuItem
         ' 
         generateMenuItem.Enabled = False
         generateMenuItem.Name = "generateMenuItem"
-        generateMenuItem.Size = New Size(224, 26)
+        generateMenuItem.Size = New Size(219, 26)
         generateMenuItem.Text = "Generate Database"
+        ' 
+        ' RefreshToolStripMenuItem
+        ' 
+        RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
+        RefreshToolStripMenuItem.Size = New Size(219, 26)
+        RefreshToolStripMenuItem.Text = "Refresh"
+        ' 
+        ' LoginToolStripMenuItem
+        ' 
+        LoginToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {LoginToolStripMenu, RegisterToolStripMenu})
+        LoginToolStripMenuItem.Name = "LoginToolStripMenuItem"
+        LoginToolStripMenuItem.Size = New Size(224, 26)
+        LoginToolStripMenuItem.Text = "Login"
+        ' 
+        ' LoginToolStripMenu
+        ' 
+        LoginToolStripMenu.Name = "LoginToolStripMenu"
+        LoginToolStripMenu.Size = New Size(224, 26)
+        LoginToolStripMenu.Text = "Login"
+        ' 
+        ' RegisterToolStripMenu
+        ' 
+        RegisterToolStripMenu.Name = "RegisterToolStripMenu"
+        RegisterToolStripMenu.Size = New Size(224, 26)
+        RegisterToolStripMenu.Text = "Register"
         ' 
         ' ExitToolStripMenuItem
         ' 
         ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
         ExitToolStripMenuItem.Size = New Size(224, 26)
         ExitToolStripMenuItem.Text = "Exit"
-        ' 
-        ' RefreshToolStripMenuItem
-        ' 
-        RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
-        RefreshToolStripMenuItem.Size = New Size(224, 26)
-        RefreshToolStripMenuItem.Text = "Refresh"
         ' 
         ' DashbordForm
         ' 
@@ -103,5 +125,8 @@ Partial Class DashbordForm
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents generateMenuItem As ToolStripMenuItem
     Friend WithEvents RefreshToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LoginToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LoginToolStripMenu As ToolStripMenuItem
+    Friend WithEvents RegisterToolStripMenu As ToolStripMenuItem
 
 End Class
