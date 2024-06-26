@@ -22,6 +22,7 @@ Public Class DashbordForm
         AddHandler LoginToolStripMenu.Click, AddressOf LoginDialog
         AddHandler RegisterToolStripMenu.Click, AddressOf RegisterDialog
         AddHandler ExitToolStripMenuItem.Click, AddressOf ExitApp
+        AddHandler EditToolStripMenuItem.Click, AddressOf AdminFormDialog
     End Sub
 
     Public Sub dashbordForm()
@@ -119,5 +120,12 @@ Public Class DashbordForm
         panel.Dock = DockStyle.Fill
         PanelDashboard.Controls.Add(panel)
         panel.Show()
+    End Sub
+
+    Private Sub AdminFormDialog()
+        Dim adminForm As New AdminForm
+        adminForm.ShowDialog()
+
+
     End Sub
 End Class

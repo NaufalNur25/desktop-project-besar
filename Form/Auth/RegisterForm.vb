@@ -1,56 +1,39 @@
 ﻿Imports System.Text
-Imports MySql.Data.MySqlClient
+Imports System.Security.Cryptography
 
 Public Class RegisterForm
-    ' Ganti dengan string koneksi Anda
-    Private connectionString As String = "server=localhost;userid=root;password= ;database=project_desktop"
+    Public Sub New()
+        ' Pemanggilan ini diperlukan oleh desainer.
+        InitializeComponent()
 
-    ' Event handler untuk tombol register
-    Private Sub RegisterButton_Click(sender As Object, e As EventArgs) Handles RegisterButton.Click
-        Dim username As String = UsernameLabel.Text
-        Dim Email As String = EmailLabel.Text
-        Dim password As String = PasswordLabel.Text
+        ' Tambahkan inisialisasi setelah pemanggilan InitializeComponent.
+        AddHandler RegisterButton.Click, AddressOf Register
+    End Sub
 
-        Dim loginForm = New LoginForm
-        Call loginForm.Login()
+    Private Sub Register()
+        Dim username = UsernameLabel.Text
+        Dim email = EmailLabel.Text
+        Dim password = PasswordLabel.Text
+        Dim hashedPassword = GetHashedPassword(password)
 
-        ' Hash password sebelum menyimpannya ke database (opsional)
-        Dim hashedPassword As String = GetHashedPassword(password)
+        Dim auth As New Auth()
+        Dim registrationSuccessful = auth.Register(username, email, hashedPassword)
 
-        ' Buat koneksi ke database
-        Using connection As New MySqlConnection(connectionString)
-            Try
-                connection.Open()
-                ' Query untuk memasukkan pengguna baru
-                Dim query As String = "INSERT INTO users (username, email, password) VALUES (@username, @email, @password)"
-                Using cmd As New MySqlCommand(query, connection)
-                    ' Tambahkan parameter ke query untuk mencegah SQL Injection
-                    cmd.Parameters.AddWithValue("@username", username)
-                    cmd.Parameters.AddWithValue("@email", Email)
-                    cmd.Parameters.AddWithValue("@password", hashedPassword)
-
-                    Dim result As Integer = cmd.ExecuteNonQuery()
-                    If result > 0 Then
-                        ' Registrasi berhasil, tampilkan pesan sukses
-                        MessageBox.Show("Registrasi berhasil! Anda sekarang dapat login.", "Registrasi Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        LoginForm.Show()
-                        Me.Close()  ' Tutup form registrasi
-                    Else
-                        ' Registrasi gagal, tampilkan pesan kesalahan
-                        MessageBox.Show("Registrasi gagal, coba lagi.", "Registrasi Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    End If
-                End Using
-            Catch ex As MySqlException
-                ' Tampilkan pesan error yang lebih detail
-                MessageBox.Show("Error: " & ex.Message & vbCrLf & "Details: " & ex.ToString(), "Database Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
-        End Using
+        If registrationSuccessful Then
+            MessageBox.Show("Registrasi berhasil!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ' Buka form login setelah registrasi berhasil
+            Dim loginForm As New LoginForm()
+            loginForm.Show()
+            Me.Close()
+        Else
+            MessageBox.Show("Registrasi gagal. Coba lagi.", "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
     End Sub
 
     ' Fungsi untuk hashing password
     Private Function GetHashedPassword(password As String) As String
-        Using hasher As New System.Security.Cryptography.SHA256Managed()
-            Dim byteValue As Byte() = System.Text.Encoding.UTF8.GetBytes(password)
+        Using hasher As New SHA256Managed()
+            Dim byteValue As Byte() = Encoding.UTF8.GetBytes(password)
             Dim byteHash As Byte() = hasher.ComputeHash(byteValue)
             Return Convert.ToBase64String(byteHash)
         End Using
