@@ -1,7 +1,7 @@
 ﻿Imports System.Text
 Imports MySql.Data.MySqlClient
 
-Public Class Register
+Public Class RegisterForm
     ' Ganti dengan string koneksi Anda
     Private connectionString As String = "server=localhost;userid=root;password= ;database=project_desktop"
 
@@ -30,7 +30,7 @@ Public Class Register
                     If result > 0 Then
                         ' Registrasi berhasil, tampilkan pesan sukses
                         MessageBox.Show("Registrasi berhasil! Anda sekarang dapat login.", "Registrasi Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        FormLogin.Show()
+                        LoginForm.Show()
                         Me.Close()  ' Tutup form registrasi
                     Else
                         ' Registrasi gagal, tampilkan pesan kesalahan
@@ -52,8 +52,4 @@ Public Class Register
             Return Convert.ToBase64String(byteHash)
         End Using
     End Function
-
-    Private Sub Register_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
 End Class

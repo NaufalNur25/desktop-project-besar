@@ -18,6 +18,8 @@ Public Class DashbordForm
 
         ' Form
         AddHandler ConnectDatabaseToolStripMenuItem.Click, AddressOf OpenConnectDatabaseForm
+        AddHandler LoginToolStripMenu.Click, AddressOf LoginDialog
+        AddHandler RegisterToolStripMenu.Click, AddressOf RegisterDialog
         AddHandler ExitToolStripMenuItem.Click, AddressOf ExitApp
     End Sub
 
@@ -60,6 +62,18 @@ Public Class DashbordForm
 
     Private Sub ExitApp()
         Me.Close()
+    End Sub
+
+    Private Sub LoginDialog()
+        Dim loginForm As New LoginForm()
+
+        loginForm.ShowDialog()
+    End Sub
+
+    Private Sub RegisterDialog()
+        Dim registerForm As New RegisterForm()
+
+        registerForm.ShowDialog()
     End Sub
 
     Private Sub RefreshMenu()
