@@ -70,9 +70,9 @@ Partial Class DatabaseConfigForm
         ' Label4
         ' 
         Label4.Image = CType(resources.GetObject("Label4.Image"), Image)
-        Label4.Location = New Point(906, 16)
+        Label4.Location = New Point(900, 9)
         Label4.Name = "Label4"
-        Label4.Size = New Size(50, 50)
+        Label4.Size = New Size(70, 70)
         Label4.TabIndex = 3
         ' 
         ' GroupBox1
