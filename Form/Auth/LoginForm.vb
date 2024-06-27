@@ -29,6 +29,7 @@ Public Class LoginForm
             MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
             session.Auth(data)
+            DashbordForm.ShowDialog()
             Me.Close()
         Else
             MessageBox.Show("Invalid email or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning)

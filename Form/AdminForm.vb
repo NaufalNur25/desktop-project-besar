@@ -87,7 +87,8 @@ Public Class AdminForm
             txtId.Text = row.Cells("id").Value.ToString()
             txtUsername.Text = row.Cells("username").Value.ToString()
             txtEmail.Text = row.Cells("email").Value.ToString()
-            txtPassword.Text = ""
+            txtPassword.Text = row.Cells("password").Value.ToString()
+            txtRole.Text = row.Cells("role").Value.ToString()
         End If
     End Sub
 

@@ -50,7 +50,7 @@ Public Class Admin
         Dim userUpdated As Boolean = False
         Try
             Connection.OpenConnection()
-            Dim query As String = "UPDATE users SET username=@Username, email=@Email, password=@Password, role=@role WHERE id=@UserId"
+            Dim query As String = "UPDATE users SET username=@Username, email=@Email, role=@role WHERE id=@UserId"
             Using cmd As New MySqlCommand(query, Connection.Connect)
                 cmd.Parameters.AddWithValue("@UserId", userId)
                 cmd.Parameters.AddWithValue("@Username", username)
