@@ -35,7 +35,6 @@ Partial Class DashbordForm
         ExitToolStripMenuItem = New ToolStripMenuItem()
         LibraryToolStripMenuItem = New ToolStripMenuItem()
         GamesToolStripMenuItem = New ToolStripMenuItem()
-        PublishNewGameToolStripMenuItem = New ToolStripMenuItem()
         ListGameToolStripMenuItem = New ToolStripMenuItem()
         AdminToolStripMenuItem = New ToolStripMenuItem()
         EditToolStripMenuItem = New ToolStripMenuItem()
@@ -44,9 +43,7 @@ Partial Class DashbordForm
         LabelUsername = New Label()
         BtLogout = New Button()
         PanelDashboard = New Panel()
-        Panel1 = New Panel()
         MenuStrip1.SuspendLayout()
-        PanelDashboard.SuspendLayout()
         SuspendLayout()
         ' 
         ' MenuStrip1
@@ -55,8 +52,8 @@ Partial Class DashbordForm
         MenuStrip1.Items.AddRange(New ToolStripItem() {FileToolStripMenuItem, LibraryToolStripMenuItem, AdminToolStripMenuItem})
         MenuStrip1.Location = New Point(0, 0)
         MenuStrip1.Name = "MenuStrip1"
-        MenuStrip1.Padding = New Padding(5, 2, 0, 2)
-        MenuStrip1.Size = New Size(748, 24)
+        MenuStrip1.Padding = New Padding(6, 3, 0, 3)
+        MenuStrip1.Size = New Size(1092, 30)
         MenuStrip1.TabIndex = 0
         MenuStrip1.Text = "MenuStrip1"
         ' 
@@ -64,103 +61,97 @@ Partial Class DashbordForm
         ' 
         FileToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ConnectionToolStripMenuItem, LoginToolStripMenuItem, RefreshForm, ExitToolStripMenuItem})
         FileToolStripMenuItem.Name = "FileToolStripMenuItem"
-        FileToolStripMenuItem.Size = New Size(37, 20)
+        FileToolStripMenuItem.Size = New Size(46, 24)
         FileToolStripMenuItem.Text = "File"
         ' 
         ' ConnectionToolStripMenuItem
         ' 
         ConnectionToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ConnectDatabaseToolStripMenuItem, generateMenuItem, RefreshToolStripMenuItem})
         ConnectionToolStripMenuItem.Name = "ConnectionToolStripMenuItem"
-        ConnectionToolStripMenuItem.Size = New Size(136, 22)
+        ConnectionToolStripMenuItem.Size = New Size(167, 26)
         ConnectionToolStripMenuItem.Text = "Connection"
         ' 
         ' ConnectDatabaseToolStripMenuItem
         ' 
         ConnectDatabaseToolStripMenuItem.Name = "ConnectDatabaseToolStripMenuItem"
-        ConnectDatabaseToolStripMenuItem.Size = New Size(172, 22)
+        ConnectDatabaseToolStripMenuItem.Size = New Size(219, 26)
         ConnectDatabaseToolStripMenuItem.Text = "Connect Database"
         ' 
         ' generateMenuItem
         ' 
         generateMenuItem.Enabled = False
         generateMenuItem.Name = "generateMenuItem"
-        generateMenuItem.Size = New Size(172, 22)
+        generateMenuItem.Size = New Size(219, 26)
         generateMenuItem.Text = "Generate Database"
         ' 
         ' RefreshToolStripMenuItem
         ' 
         RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
-        RefreshToolStripMenuItem.Size = New Size(172, 22)
+        RefreshToolStripMenuItem.Size = New Size(219, 26)
         RefreshToolStripMenuItem.Text = "Refresh"
         ' 
         ' LoginToolStripMenuItem
         ' 
         LoginToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {LoginToolStripMenu, RegisterToolStripMenu})
         LoginToolStripMenuItem.Name = "LoginToolStripMenuItem"
-        LoginToolStripMenuItem.Size = New Size(136, 22)
+        LoginToolStripMenuItem.Size = New Size(167, 26)
         LoginToolStripMenuItem.Text = "Login"
         ' 
         ' LoginToolStripMenu
         ' 
         LoginToolStripMenu.Name = "LoginToolStripMenu"
-        LoginToolStripMenu.Size = New Size(116, 22)
+        LoginToolStripMenu.Size = New Size(146, 26)
         LoginToolStripMenu.Text = "Login"
         ' 
         ' RegisterToolStripMenu
         ' 
         RegisterToolStripMenu.Name = "RegisterToolStripMenu"
-        RegisterToolStripMenu.Size = New Size(116, 22)
+        RegisterToolStripMenu.Size = New Size(146, 26)
         RegisterToolStripMenu.Text = "Register"
         ' 
         ' RefreshForm
         ' 
         RefreshForm.Name = "RefreshForm"
-        RefreshForm.Size = New Size(136, 22)
+        RefreshForm.Size = New Size(167, 26)
         RefreshForm.Text = "Refresh"
         ' 
         ' ExitToolStripMenuItem
         ' 
         ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        ExitToolStripMenuItem.Size = New Size(136, 22)
+        ExitToolStripMenuItem.Size = New Size(167, 26)
         ExitToolStripMenuItem.Text = "Exit"
         ' 
         ' LibraryToolStripMenuItem
         ' 
         LibraryToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {GamesToolStripMenuItem})
         LibraryToolStripMenuItem.Name = "LibraryToolStripMenuItem"
-        LibraryToolStripMenuItem.Size = New Size(55, 20)
+        LibraryToolStripMenuItem.Size = New Size(68, 24)
         LibraryToolStripMenuItem.Text = "Master"
         ' 
         ' GamesToolStripMenuItem
         ' 
-        GamesToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {PublishNewGameToolStripMenuItem, ListGameToolStripMenuItem})
+        GamesToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ListGameToolStripMenuItem})
         GamesToolStripMenuItem.Name = "GamesToolStripMenuItem"
-        GamesToolStripMenuItem.Size = New Size(180, 22)
+        GamesToolStripMenuItem.Size = New Size(224, 26)
         GamesToolStripMenuItem.Text = "Games"
-        ' 
-        ' PublishNewGameToolStripMenuItem
-        ' 
-        PublishNewGameToolStripMenuItem.Name = "PublishNewGameToolStripMenuItem"
-        PublishNewGameToolStripMenuItem.Size = New Size(180, 22)
-        PublishNewGameToolStripMenuItem.Text = "Publish new game"
         ' 
         ' ListGameToolStripMenuItem
         ' 
         ListGameToolStripMenuItem.Name = "ListGameToolStripMenuItem"
-        ListGameToolStripMenuItem.Size = New Size(180, 22)
+        ListGameToolStripMenuItem.Size = New Size(224, 26)
         ListGameToolStripMenuItem.Text = "Game Lists"
         ' 
         ' AdminToolStripMenuItem
         ' 
         AdminToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {EditToolStripMenuItem})
         AdminToolStripMenuItem.Name = "AdminToolStripMenuItem"
-        AdminToolStripMenuItem.Size = New Size(55, 20)
+        AdminToolStripMenuItem.Size = New Size(67, 24)
         AdminToolStripMenuItem.Text = "Admin"
         ' 
         ' EditToolStripMenuItem
         ' 
         EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        EditToolStripMenuItem.Size = New Size(94, 22)
+        EditToolStripMenuItem.Size = New Size(224, 26)
         EditToolStripMenuItem.Text = "Edit"
         ' 
         ' navBackground
@@ -168,9 +159,9 @@ Partial Class DashbordForm
         navBackground.BackColor = SystemColors.ControlLight
         navBackground.BorderStyle = BorderStyle.Fixed3D
         navBackground.ForeColor = SystemColors.ActiveCaptionText
-        navBackground.Location = New Point(0, 21)
+        navBackground.Location = New Point(0, 28)
         navBackground.Name = "navBackground"
-        navBackground.Size = New Size(751, 40)
+        navBackground.Size = New Size(1092, 52)
         navBackground.TabIndex = 1
         ' 
         ' LabelDashboard
@@ -179,9 +170,9 @@ Partial Class DashbordForm
         LabelDashboard.AutoSize = True
         LabelDashboard.BackColor = SystemColors.ControlLight
         LabelDashboard.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        LabelDashboard.Location = New Point(4, 29)
+        LabelDashboard.Location = New Point(12, 37)
         LabelDashboard.Name = "LabelDashboard"
-        LabelDashboard.Size = New Size(86, 21)
+        LabelDashboard.Size = New Size(108, 28)
         LabelDashboard.TabIndex = 2
         LabelDashboard.Text = "Dashboard"
         ' 
@@ -189,9 +180,9 @@ Partial Class DashbordForm
         ' 
         LabelUsername.BackColor = SystemColors.ControlLight
         LabelUsername.ImageAlign = ContentAlignment.MiddleRight
-        LabelUsername.Location = New Point(492, 32)
+        LabelUsername.Location = New Point(807, 43)
         LabelUsername.Name = "LabelUsername"
-        LabelUsername.Size = New Size(134, 15)
+        LabelUsername.Size = New Size(153, 20)
         LabelUsername.TabIndex = 3
         LabelUsername.Text = "username"
         LabelUsername.TextAlign = ContentAlignment.MiddleRight
@@ -199,48 +190,37 @@ Partial Class DashbordForm
         ' BtLogout
         ' 
         BtLogout.BackColor = SystemColors.Control
-        BtLogout.Location = New Point(631, 28)
-        BtLogout.Margin = New Padding(3, 2, 3, 2)
+        BtLogout.Location = New Point(966, 37)
         BtLogout.Name = "BtLogout"
-        BtLogout.Size = New Size(100, 22)
+        BtLogout.Size = New Size(114, 29)
         BtLogout.TabIndex = 4
         BtLogout.Text = "Logout"
         BtLogout.UseVisualStyleBackColor = False
         ' 
         ' PanelDashboard
         ' 
-        PanelDashboard.Controls.Add(Panel1)
-        PanelDashboard.Location = New Point(0, 57)
-        PanelDashboard.Margin = New Padding(3, 2, 3, 2)
+        PanelDashboard.Location = New Point(0, 83)
         PanelDashboard.Name = "PanelDashboard"
-        PanelDashboard.Size = New Size(751, 365)
+        PanelDashboard.Size = New Size(1091, 785)
         PanelDashboard.TabIndex = 5
-        ' 
-        ' Panel1
-        ' 
-        Panel1.Location = New Point(2, 0)
-        Panel1.Name = "Panel1"
-        Panel1.Size = New Size(744, 365)
-        Panel1.TabIndex = 0
         ' 
         ' DashbordForm
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(748, 422)
+        ClientSize = New Size(1092, 868)
         Controls.Add(PanelDashboard)
         Controls.Add(BtLogout)
         Controls.Add(LabelUsername)
         Controls.Add(LabelDashboard)
         Controls.Add(navBackground)
         Controls.Add(MenuStrip1)
+        FormBorderStyle = FormBorderStyle.FixedSingle
         MainMenuStrip = MenuStrip1
-        Margin = New Padding(3, 2, 3, 2)
         Name = "DashbordForm"
         Text = "Games Library"
         MenuStrip1.ResumeLayout(False)
         MenuStrip1.PerformLayout()
-        PanelDashboard.ResumeLayout(False)
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -263,10 +243,8 @@ Partial Class DashbordForm
     Friend WithEvents LibraryToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PanelDashboard As Panel
     Friend WithEvents GamesToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents PublishNewGameToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ListGameToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AdminToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EditToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents Panel1 As Panel
 
 End Class

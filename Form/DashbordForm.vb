@@ -133,7 +133,7 @@ Public Class DashbordForm
         childform(GamesForm)
     End Sub
 
-    Private Sub PublishNewGameToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PublishNewGameToolStripMenuItem.Click
+    Private Sub PublishNewGameToolStripMenuItem_Click(sender As Object, e As EventArgs)
         childform(PublishNewGameForm)
     End Sub
 End Class
