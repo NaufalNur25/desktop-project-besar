@@ -19,18 +19,16 @@ Public Class LoginForm
         Dim hashedPassword = GetHashedPassword(password)
 
         Dim auth As New Auth()
+        Dim session As New AuthSession()
         Dim result = auth.Login(email, hashedPassword)
         Dim loginSuccessful As Boolean = result.Item1
-        Dim username As String = result.Item2
+        Dim data = result.Item2
 
         If loginSuccessful Then
             ' Simpan fullname di session
-            Dim sessionConfig As New SessionConfig()
-            sessionConfig.setSession("username", username)
-            sessionConfig.SaveConfig()
-
             MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
+            session.Auth(data)
             Me.Close()
         Else
             MessageBox.Show("Invalid email or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning)

@@ -1,20 +1,23 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class Auth
-    Public Function Login(email As String, hashedPassword As String) As (Boolean, String)
+    Public Function Login(email As String, hashedPassword As String) As (Boolean, Dictionary(Of String, String))
         Dim loginSuccessful As Boolean = False
-        Dim username As String = String.Empty
+        Dim data As New Dictionary(Of String, String)()
 
         Try
             Connection.OpenConnection()
-            Dim query As String = "SELECT username FROM users WHERE email=@Email AND password=@Password"
+            Dim query As String = "SELECT id, username, email, role FROM users WHERE email=@Email AND password=@Password"
             Using cmd As New MySqlCommand(query, Connection.Connect)
                 cmd.Parameters.AddWithValue("@Email", email)
                 cmd.Parameters.AddWithValue("@Password", hashedPassword)
                 Using reader As MySqlDataReader = cmd.ExecuteReader()
                     If reader.Read() Then
                         loginSuccessful = True
-                        username = reader("username").ToString()
+                        data("sub") = reader("id").ToString()
+                        data("username") = reader("username").ToString()
+                        data("email") = reader("email").ToString()
+                        data("role") = reader("role").ToString()
                     End If
                 End Using
             End Using
@@ -24,7 +27,7 @@ Public Class Auth
             Connection.CloseConnection()
         End Try
 
-        Return (loginSuccessful, username)
+        Return (loginSuccessful, data)
     End Function
 
     Public Function Register(username As String, email As String, hashedPassword As String) As Boolean
