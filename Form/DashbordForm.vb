@@ -136,4 +136,8 @@ Public Class DashbordForm
     Private Sub PublishNewGameToolStripMenuItem_Click(sender As Object, e As EventArgs)
         childform(PublishNewGameForm)
     End Sub
+
+    Private Sub WishlistToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles WishlistToolStripMenuItem.Click
+        childform(WishlistForm)
+    End Sub
 End Class
