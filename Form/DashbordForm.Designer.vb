@@ -37,14 +37,16 @@ Partial Class DashbordForm
         GamesToolStripMenuItem = New ToolStripMenuItem()
         PublishNewGameToolStripMenuItem = New ToolStripMenuItem()
         ListGameToolStripMenuItem = New ToolStripMenuItem()
+        AdminToolStripMenuItem = New ToolStripMenuItem()
+        EditToolStripMenuItem = New ToolStripMenuItem()
         navBackground = New Label()
         LabelDashboard = New Label()
         LabelUsername = New Label()
         BtLogout = New Button()
         PanelDashboard = New Panel()
-        AdminToolStripMenuItem = New ToolStripMenuItem()
-        EditToolStripMenuItem = New ToolStripMenuItem()
+        Panel1 = New Panel()
         MenuStrip1.SuspendLayout()
+        PanelDashboard.SuspendLayout()
         SuspendLayout()
         ' 
         ' MenuStrip1
@@ -139,14 +141,27 @@ Partial Class DashbordForm
         ' PublishNewGameToolStripMenuItem
         ' 
         PublishNewGameToolStripMenuItem.Name = "PublishNewGameToolStripMenuItem"
-        PublishNewGameToolStripMenuItem.Size = New Size(171, 22)
+        PublishNewGameToolStripMenuItem.Size = New Size(180, 22)
         PublishNewGameToolStripMenuItem.Text = "Publish new game"
         ' 
         ' ListGameToolStripMenuItem
         ' 
         ListGameToolStripMenuItem.Name = "ListGameToolStripMenuItem"
-        ListGameToolStripMenuItem.Size = New Size(171, 22)
+        ListGameToolStripMenuItem.Size = New Size(180, 22)
         ListGameToolStripMenuItem.Text = "Game Lists"
+        ' 
+        ' AdminToolStripMenuItem
+        ' 
+        AdminToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {EditToolStripMenuItem})
+        AdminToolStripMenuItem.Name = "AdminToolStripMenuItem"
+        AdminToolStripMenuItem.Size = New Size(55, 20)
+        AdminToolStripMenuItem.Text = "Admin"
+        ' 
+        ' EditToolStripMenuItem
+        ' 
+        EditToolStripMenuItem.Name = "EditToolStripMenuItem"
+        EditToolStripMenuItem.Size = New Size(94, 22)
+        EditToolStripMenuItem.Text = "Edit"
         ' 
         ' navBackground
         ' 
@@ -163,7 +178,7 @@ Partial Class DashbordForm
         LabelDashboard.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom
         LabelDashboard.AutoSize = True
         LabelDashboard.BackColor = SystemColors.ControlLight
-        LabelDashboard.Font = New Font("Segoe UI", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        LabelDashboard.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         LabelDashboard.Location = New Point(4, 29)
         LabelDashboard.Name = "LabelDashboard"
         LabelDashboard.Size = New Size(86, 21)
@@ -194,28 +209,23 @@ Partial Class DashbordForm
         ' 
         ' PanelDashboard
         ' 
+        PanelDashboard.Controls.Add(Panel1)
         PanelDashboard.Location = New Point(0, 57)
         PanelDashboard.Margin = New Padding(3, 2, 3, 2)
         PanelDashboard.Name = "PanelDashboard"
         PanelDashboard.Size = New Size(751, 365)
         PanelDashboard.TabIndex = 5
         ' 
-        ' AdminToolStripMenuItem
+        ' Panel1
         ' 
-        AdminToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {EditToolStripMenuItem})
-        AdminToolStripMenuItem.Name = "AdminToolStripMenuItem"
-        AdminToolStripMenuItem.Size = New Size(55, 20)
-        AdminToolStripMenuItem.Text = "Admin"
-        ' 
-        ' EditToolStripMenuItem
-        ' 
-        EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        EditToolStripMenuItem.Size = New Size(180, 22)
-        EditToolStripMenuItem.Text = "Edit"
+        Panel1.Location = New Point(2, 0)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(744, 365)
+        Panel1.TabIndex = 0
         ' 
         ' DashbordForm
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(748, 422)
         Controls.Add(PanelDashboard)
@@ -230,6 +240,7 @@ Partial Class DashbordForm
         Text = "Games Library"
         MenuStrip1.ResumeLayout(False)
         MenuStrip1.PerformLayout()
+        PanelDashboard.ResumeLayout(False)
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -256,5 +267,6 @@ Partial Class DashbordForm
     Friend WithEvents ListGameToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AdminToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EditToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Panel1 As Panel
 
 End Class
