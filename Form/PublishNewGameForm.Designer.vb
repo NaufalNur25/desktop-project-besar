@@ -28,7 +28,7 @@ Partial Class PublishNewGameForm
         TxtDevName = New TextBox()
         TxtPubName = New TextBox()
         TxtPriceList = New TextBox()
-        RelaeseDate = New DateTimePicker()
+        RelaeseDateTimePicker = New DateTimePicker()
         Label2 = New Label()
         Label3 = New Label()
         Label4 = New Label()
@@ -36,8 +36,8 @@ Partial Class PublishNewGameForm
         Label6 = New Label()
         Label7 = New Label()
         Label8 = New Label()
-        Button1 = New Button()
-        CheckBox16 = New CheckBox()
+        BtPublish = New Button()
+        CbMultiplayerGame = New CheckBox()
         TxtGenre = New TextBox()
         TxtPlatform = New TextBox()
         SuspendLayout()
@@ -87,12 +87,12 @@ Partial Class PublishNewGameForm
         TxtPriceList.Size = New Size(365, 27)
         TxtPriceList.TabIndex = 5
         ' 
-        ' RelaeseDate
+        ' RelaeseDateTimePicker
         ' 
-        RelaeseDate.Location = New Point(422, 179)
-        RelaeseDate.Name = "RelaeseDate"
-        RelaeseDate.Size = New Size(385, 27)
-        RelaeseDate.TabIndex = 6
+        RelaeseDateTimePicker.Location = New Point(422, 179)
+        RelaeseDateTimePicker.Name = "RelaeseDateTimePicker"
+        RelaeseDateTimePicker.Size = New Size(385, 27)
+        RelaeseDateTimePicker.TabIndex = 6
         ' 
         ' Label2
         ' 
@@ -157,24 +157,24 @@ Partial Class PublishNewGameForm
         Label8.TabIndex = 18
         Label8.Text = "Genre"
         ' 
-        ' Button1
+        ' BtPublish
         ' 
-        Button1.Location = New Point(33, 412)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(774, 43)
-        Button1.TabIndex = 32
-        Button1.Text = "Publish new game"
-        Button1.UseVisualStyleBackColor = True
+        BtPublish.Location = New Point(33, 412)
+        BtPublish.Name = "BtPublish"
+        BtPublish.Size = New Size(774, 43)
+        BtPublish.TabIndex = 32
+        BtPublish.Text = "Publish new game"
+        BtPublish.UseVisualStyleBackColor = True
         ' 
-        ' CheckBox16
+        ' CbMultiplayerGame
         ' 
-        CheckBox16.AutoSize = True
-        CheckBox16.Location = New Point(33, 382)
-        CheckBox16.Name = "CheckBox16"
-        CheckBox16.Size = New Size(154, 24)
-        CheckBox16.TabIndex = 33
-        CheckBox16.Text = "Multiplayer games"
-        CheckBox16.UseVisualStyleBackColor = True
+        CbMultiplayerGame.AutoSize = True
+        CbMultiplayerGame.Location = New Point(33, 382)
+        CbMultiplayerGame.Name = "CbMultiplayerGame"
+        CbMultiplayerGame.Size = New Size(154, 24)
+        CbMultiplayerGame.TabIndex = 33
+        CbMultiplayerGame.Text = "Multiplayer games"
+        CbMultiplayerGame.UseVisualStyleBackColor = True
         ' 
         ' TxtGenre
         ' 
@@ -190,15 +190,15 @@ Partial Class PublishNewGameForm
         TxtPlatform.Size = New Size(365, 27)
         TxtPlatform.TabIndex = 35
         ' 
-        ' MasterGameForm
+        ' PublishNewGameForm
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(840, 469)
         Controls.Add(TxtPlatform)
         Controls.Add(TxtGenre)
-        Controls.Add(CheckBox16)
-        Controls.Add(Button1)
+        Controls.Add(CbMultiplayerGame)
+        Controls.Add(BtPublish)
         Controls.Add(Label8)
         Controls.Add(Label7)
         Controls.Add(Label6)
@@ -206,14 +206,14 @@ Partial Class PublishNewGameForm
         Controls.Add(Label4)
         Controls.Add(Label3)
         Controls.Add(Label2)
-        Controls.Add(RelaeseDate)
+        Controls.Add(RelaeseDateTimePicker)
         Controls.Add(TxtPriceList)
         Controls.Add(TxtPubName)
         Controls.Add(TxtDevName)
         Controls.Add(TxtDesc)
         Controls.Add(TxtGameName)
         Controls.Add(Label1)
-        Name = "MasterGameForm"
+        Name = "PublishNewGameForm"
         Text = "MasterGameForm"
         ResumeLayout(False)
         PerformLayout()
@@ -225,7 +225,7 @@ Partial Class PublishNewGameForm
     Friend WithEvents TxtDevName As TextBox
     Friend WithEvents TxtPubName As TextBox
     Friend WithEvents TxtPriceList As TextBox
-    Friend WithEvents RelaeseDate As DateTimePicker
+    Friend WithEvents RelaeseDateTimePicker As DateTimePicker
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
@@ -233,8 +233,8 @@ Partial Class PublishNewGameForm
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
-    Friend WithEvents Button1 As Button
-    Friend WithEvents CheckBox16 As CheckBox
+    Friend WithEvents BtPublish As Button
+    Friend WithEvents CbMultiplayerGame As CheckBox
     Friend WithEvents TxtGenre As TextBox
     Friend WithEvents TxtPlatform As TextBox
 End Class

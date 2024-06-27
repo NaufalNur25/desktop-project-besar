@@ -130,22 +130,10 @@ Public Class DashbordForm
     End Sub
 
     Private Sub ListGameToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListGameToolStripMenuItem.Click
-        Dim panel As New GamesForm()
-
-        ShowFormInPanel(Panel1, panel)
+        childform(GamesForm)
     End Sub
 
-
-    Sub ShowFormInPanel(panel As Panel, formToShow As Form)
-        ' Set form sebagai kontrol anak dari panel
-        formToShow.TopLevel = False
-        formToShow.FormBorderStyle = FormBorderStyle.None
-        formToShow.Dock = DockStyle.Fill
-
-        ' Tambahkan form ke panel
-        panel.Controls.Clear()
-        panel.Controls.Add(formToShow)
-        formToShow.Show()
+    Private Sub PublishNewGameToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PublishNewGameToolStripMenuItem.Click
+        childform(PublishNewGameForm)
     End Sub
-
 End Class

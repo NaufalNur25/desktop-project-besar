@@ -41,6 +41,11 @@ Public Class SessionConfig
         End Using
     End Sub
 
+    Public Sub ClearSession()
+        sessionData.Clear()
+        SaveConfig()
+    End Sub
+
     Private Sub LoadConfig()
         If File.Exists(configPath) Then
             Using reader As New StreamReader(configPath)
