@@ -14,6 +14,7 @@ Public Class AdminForm
         AddHandler btnEdit.Click, AddressOf UpdateUser
         AddHandler btnDelete.Click, AddressOf DeleteUser
         AddHandler dgvUsers.CellClick, AddressOf DataGridViewUsers_CellClick
+        AddHandler Me.Load, AddressOf ReadUsers
     End Sub
 
     Private Sub CreateUser()
