@@ -1,164 +1,101 @@
-﻿Imports Microsoft.VisualBasic.ApplicationServices
+﻿Imports System.Text
+Imports System.Security.Cryptography
 Imports MySql.Data.MySqlClient
+Imports System.Threading
 
 Public Class AdminForm
-    ' Ganti dengan string koneksi Anda
-    Private connectionString As String = "server=localhost;userid=root;password= ;database=project_desktop"
+    Public Sub New()
+        ' Pemanggilan ini diperlukan oleh desainer.
+        InitializeComponent()
 
-    Private Sub AdminForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        txtRole.Items.Add("admin")
-        txtRole.Items.Add("user")
-        LoadData()
+        ' Tambahkan inisialisasi setelah pemanggilan InitializeComponent.
+        AddHandler btnAdd.Click, AddressOf CreateUser
+        AddHandler btnRefresh.Click, AddressOf ReadUsers
+        AddHandler btnEdit.Click, AddressOf UpdateUser
+        AddHandler btnDelete.Click, AddressOf DeleteUser
+        AddHandler dgvUsers.CellClick, AddressOf DataGridViewUsers_CellClick
+        AddHandler Me.Load, AddressOf ReadUsers
     End Sub
 
-    Private Sub LoadData()
-        Using connection As New MySqlConnection(connectionString)
-            Try
-                connection.Open()
-                Dim query As String = "SELECT id, username, email, password, role FROM users"
-                Using cmd As New MySqlCommand(query, connection)
-                    Using adapter As New MySqlDataAdapter(cmd)
-                        Dim table As New DataTable()
-                        adapter.Fill(table)
-                        dgvUsers.DataSource = table
-                    End Using
-                End Using
-            Catch ex As MySqlException
-                MessageBox.Show("Error: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
-        End Using
-    End Sub
+    Private Sub CreateUser()
+        Dim username = txtUsername.Text
+        Dim email = txtEmail.Text
+        Dim password = txtPassword.Text
 
-    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
-        LoadData()
-    End Sub
+        Dim admin As New Admin()
+        Dim userCreated = admin.CreateUser(username, email, password)
 
-
-
-
-    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
-        If dgvUsers.SelectedRows.Count > 0 Then
-            Dim id As Integer = Convert.ToInt32(dgvUsers.SelectedRows(0).Cells("id").Value)
-            Dim result As DialogResult = MessageBox.Show("Apakah Anda yakin ingin menghapus pengguna ini?", "Hapus Pengguna", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
-            If result = DialogResult.Yes Then
-                Using connection As New MySqlConnection(connectionString)
-                    Try
-                        connection.Open()
-                        Dim query As String = "DELETE FROM users WHERE id=@id"
-                        Using cmd As New MySqlCommand(query, connection)
-                            cmd.Parameters.AddWithValue("@id", id)
-                            cmd.ExecuteNonQuery()
-                            MessageBox.Show("Pengguna berhasil dihapus.", "Hapus Pengguna", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            LoadData()
-                        End Using
-                    Catch ex As MySqlException
-                        MessageBox.Show("Error: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    End Try
-                End Using
-            End If
+        If userCreated Then
+            MessageBox.Show("Pengguna berhasil dibuat!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ReadUsers() ' Refresh data pengguna setelah create
         Else
-            MessageBox.Show("Pilih pengguna yang ingin dihapus.", "Hapus Pengguna", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            MessageBox.Show("Gagal membuat pengguna.", "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
 
-    Private Sub isiCombo()
-
-
+    Private Sub ReadUsers()
+        Dim admin As New Admin()
+        Dim usersTable As DataTable = admin.ReadUsers()
+        dgvUsers.DataSource = usersTable
     End Sub
 
-    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        Dim username As String = txtUsername.Text
-        Dim email As String = txtEmail.Text
-        Dim password As String = txtPassword.Text
-        Dim role As String = txtRole.Text
-        Dim id As String = txtId.Text
+    Private Sub UpdateUser()
+        Dim userId As Integer
+        If Not Integer.TryParse(txtId.Text, userId) Then
+            MessageBox.Show("ID pengguna tidak valid.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
 
-        ' Hash password sebelum menyimpannya ke database (opsional)
-        Dim hashedPassword As String = GetHashedPassword(password)
+        Dim username = txtUsername.Text
+        Dim email = txtEmail.Text
+        Dim password = txtPassword.Text
+        Dim role = txtRole.Text
 
-        ' Buat koneksi ke database
-        Using connection As New MySqlConnection(connectionString)
-            Try
-                connection.Open()
-                ' Query untuk memasukkan pengguna baru
-                Dim query As String = "INSERT INTO users (username, email, password, role) VALUES (@username, @email, @password, @role)"
-                Using cmd As New MySqlCommand(query, connection)
-                    ' Tambahkan parameter ke query untuk mencegah SQL Injection
-                    cmd.Parameters.AddWithValue("@username", username)
-                    cmd.Parameters.AddWithValue("@email", email)
-                    cmd.Parameters.AddWithValue("@password", hashedPassword)
-                    cmd.Parameters.AddWithValue("@role", role)
+        Dim admin As New Admin()
+        Dim userUpdated = admin.UpdateUser(userId, username, email, password, role)
 
-                    Dim result As Integer = cmd.ExecuteNonQuery()
-                    If result > 0 Then
-                        ' Registrasi berhasil, tampilkan pesan sukses
-                        MessageBox.Show("Data berhasil ditambahkan.", "Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    Else
-                        ' Registrasi gagal, tampilkan pesan kesalahan
-                        MessageBox.Show("Data gagal ditambahkan", "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    End If
-                End Using
-            Catch ex As MySqlException
-                ' Tampilkan pesan error yang lebih detail
-                MessageBox.Show("Error: " & ex.Message & vbCrLf & "Details: " & ex.ToString(), "Database Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
-        End Using
+        If userUpdated Then
+            MessageBox.Show("Pengguna berhasil diperbarui!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ReadUsers() ' Refresh data pengguna setelah update
+        Else
+            MessageBox.Show("Gagal memperbarui pengguna.", "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+    End Sub
+
+    Private Sub DeleteUser()
+        Dim userId As Integer
+        If Not Integer.TryParse(txtId.Text, userId) Then
+            MessageBox.Show("ID pengguna tidak valid.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        Dim admin As New Admin()
+        Dim userDeleted = admin.DeleteUser(userId)
+
+        If userDeleted Then
+            MessageBox.Show("Pengguna berhasil dihapus!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ReadUsers() ' Refresh data pengguna setelah delete
+        Else
+            MessageBox.Show("Gagal menghapus pengguna.", "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+    End Sub
+
+    Private Sub DataGridViewUsers_CellClick(sender As Object, e As DataGridViewCellEventArgs)
+        ' Pastikan klik tidak pada header row
+        If e.RowIndex >= 0 Then
+            Dim row As DataGridViewRow = dgvUsers.Rows(e.RowIndex)
+            txtId.Text = row.Cells("id").Value.ToString()
+            txtUsername.Text = row.Cells("username").Value.ToString()
+            txtEmail.Text = row.Cells("email").Value.ToString()
+            txtPassword.Text = ""
+        End If
     End Sub
 
     Private Function GetHashedPassword(password As String) As String
-        Using hasher As New System.Security.Cryptography.SHA256Managed()
-            Dim byteValue As Byte() = System.Text.Encoding.UTF8.GetBytes(password)
+        Using hasher As New SHA256Managed()
+            Dim byteValue As Byte() = Encoding.UTF8.GetBytes(password)
             Dim byteHash As Byte() = hasher.ComputeHash(byteValue)
             Return Convert.ToBase64String(byteHash)
         End Using
     End Function
-
-    Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
-        Dim username As String = txtUsername.Text
-        Dim email As String = txtEmail.Text
-        Dim password As String = txtPassword.Text
-        Dim role As String = txtRole.Text
-        Dim id As String = txtId.Text
-
-
-        ' Hash password sebelum menyimpannya ke database (opsional)
-        Dim hashedPassword As String = GetHashedPassword(password)
-
-        ' Buat koneksi ke database
-        Using connection As New MySqlConnection(connectionString)
-            Try
-                connection.Open()
-                ' Query untuk memasukkan pengguna baru
-                Dim query As String = "UPDATE users SET username=@username, email=@email, password=@password, role=@role WHERE id=@id"
-                Using cmd As New MySqlCommand(query, connection)
-                    ' Tambahkan parameter ke query untuk mencegah SQL Injection
-                    cmd.Parameters.AddWithValue("@id", id)
-                    cmd.Parameters.AddWithValue("@username", username)
-                    cmd.Parameters.AddWithValue("@email", email)
-                    cmd.Parameters.AddWithValue("@password", hashedPassword)
-                    cmd.Parameters.AddWithValue("@role", role)
-
-                    Dim result As Integer = cmd.ExecuteNonQuery()
-                    If result > 0 Then
-                        ' Registrasi berhasil, tampilkan pesan sukses
-                        MessageBox.Show("Data berhasil ditambahkan.", "Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    Else
-                        ' Registrasi gagal, tampilkan pesan kesalahan
-                        MessageBox.Show("Data gagal ditambahkan", "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    End If
-                End Using
-            Catch ex As MySqlException
-                ' Tampilkan pesan error yang lebih detail
-                MessageBox.Show("Error: " & ex.Message & vbCrLf & "Details: " & ex.ToString(), "Database Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
-        End Using
-    End Sub
-
-    Private Sub Id_Click(sender As Object, e As EventArgs) Handles Id.Click
-
-    End Sub
-
-    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
-
-    End Sub
 End Class

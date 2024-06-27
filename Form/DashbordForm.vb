@@ -22,6 +22,7 @@ Public Class DashbordForm
         AddHandler LoginToolStripMenu.Click, AddressOf LoginDialog
         AddHandler RegisterToolStripMenu.Click, AddressOf RegisterDialog
         AddHandler ExitToolStripMenuItem.Click, AddressOf ExitApp
+        AddHandler EditToolStripMenuItem.Click, AddressOf AdminFormDialog
     End Sub
 
     Public Sub dashbordForm()
@@ -120,4 +121,31 @@ Public Class DashbordForm
         PanelDashboard.Controls.Add(panel)
         panel.Show()
     End Sub
+
+    Private Sub AdminFormDialog()
+        Dim adminForm As New AdminForm
+        adminForm.ShowDialog()
+
+
+    End Sub
+
+    Private Sub ListGameToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListGameToolStripMenuItem.Click
+        Dim panel As New GamesForm()
+
+        ShowFormInPanel(Panel1, panel)
+    End Sub
+
+
+    Sub ShowFormInPanel(panel As Panel, formToShow As Form)
+        ' Set form sebagai kontrol anak dari panel
+        formToShow.TopLevel = False
+        formToShow.FormBorderStyle = FormBorderStyle.None
+        formToShow.Dock = DockStyle.Fill
+
+        ' Tambahkan form ke panel
+        panel.Controls.Clear()
+        panel.Controls.Add(formToShow)
+        formToShow.Show()
+    End Sub
+
 End Class
