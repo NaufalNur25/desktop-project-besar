@@ -87,7 +87,7 @@ Public Class DashbordForm
 
     Private Sub LoginDialog()
         Dim loginForm As New LoginForm()
-
+        Me.Hide()
         loginForm.ShowDialog()
     End Sub
 

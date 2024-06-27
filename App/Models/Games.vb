@@ -1,6 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.Text
 Imports System.Security.Cryptography
+Imports Microsoft.VisualBasic.ApplicationServices
 
 Public Class Games
     Public Function Publish(ByVal gameName As String, ByVal devName As String, ByVal desc As String, ByVal pubName As String,
@@ -56,6 +57,35 @@ Public Class Games
             Connection.CloseConnection()
         End Try
         Return usersTable
+    End Function
+
+    Public Function UpdateGame(ByVal gameId As Integer, ByVal gameName As String, ByVal devName As String, ByVal desc As String, ByVal pubName As String,
+                          ByVal releaseDate As String, ByVal price As String, ByVal genre As String, ByVal platform As String,
+                          ByVal isMultiplayerGame As Boolean) As Boolean
+        Dim userUpdated As Boolean = False
+        Try
+            Connection.OpenConnection()
+            Dim query As String = "UPDATE games SET name=@gameName, dev_game=@devName, description=@desc, pub_game=@pubName, release_date=@releaseDate, price_list=@price, genre=@genre, platform=@platform, is_multiplayer=@isMultiplayer WHERE id=@gameid"
+            Using cmd As New MySqlCommand(query, Connection.Connect)
+                cmd.Parameters.AddWithValue("@gameID", gameId)
+                cmd.Parameters.AddWithValue("@gameName", gameName)
+                cmd.Parameters.AddWithValue("@devName", devName)
+                cmd.Parameters.AddWithValue("@desc", desc)
+                cmd.Parameters.AddWithValue("@pubName", pubName)
+                cmd.Parameters.AddWithValue("@releaseDate", releaseDate)
+                cmd.Parameters.AddWithValue("@price", price)
+                cmd.Parameters.AddWithValue("@genre", genre)
+                cmd.Parameters.AddWithValue("@platform", platform)
+                cmd.Parameters.AddWithValue("@isMultiplayer", isMultiplayerGame)
+                Dim rowsAffected = cmd.ExecuteNonQuery()
+                userUpdated = (rowsAffected > 0)
+            End Using
+        Catch ex As MySqlException
+            MessageBox.Show(ex.Message, "Error Updating game", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            Connection.CloseConnection()
+        End Try
+        Return userUpdated
     End Function
 
     Public Function DeleteGame(gameId As Integer) As Boolean

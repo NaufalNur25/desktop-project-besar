@@ -88,7 +88,7 @@ Partial Class AdminForm
         ' txtRole
         ' 
         txtRole.FormattingEnabled = True
-        txtRole.Items.AddRange(New Object() {"admin", "role"})
+        txtRole.Items.AddRange(New Object() {"USER", "ADMIN"})
         txtRole.Location = New Point(150, 139)
         txtRole.Name = "txtRole"
         txtRole.Size = New Size(146, 23)
