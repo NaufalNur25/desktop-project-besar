@@ -9,9 +9,8 @@
         AddHandler PublishButton.Click, AddressOf AddGame
         AddHandler HapusButton.Click, AddressOf DeleteGame
         AddHandler RefreshButton.Click, AddressOf LoadGames
-
-        AddHandler dgvGames.SelectionChanged, AddressOf selectedList
-        'AddHandler UpdateButton.Click, AddressOf UpdateGame
+        AddHandler dgvGames.Click, AddressOf selectedList
+        AddHandler EditButton.Click, AddressOf UpdateGame
 
     End Sub
 
@@ -70,16 +69,16 @@
             Dim isMultiplayerGame As Boolean = CbMultiplayerGame.Checked
 
             Dim games As New Games
-            'Dim success As Boolean = games.UpdateGame(gameId, gameName, devName, desc, pubName, releaseDate, price, genre, platform, isMultiplayerGame)
+            Dim success As Boolean = games.UpdateGame(gameId, gameName, devName, desc, pubName, releaseDate, price, genre, platform, isMultiplayerGame)
 
-            'If success Then
-            'MessageBox.Show("Game updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            'Call LoadGames()
-            'Else
-            'Mes'sageBox.Show("Error updating game!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            'End If
+            If success Then
+                MessageBox.Show("Game updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Call LoadGames()
+            Else
+                MessageBox.Show("Error updating game!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         Else
-            MessageBox.Show("Please select a game to update.", "No Game Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                MessageBox.Show("Please select a game to update.", "No Game Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
     End Sub
 
@@ -144,5 +143,6 @@
             setInputForm(gameName, devName, desc, pubName, releaseDate, price, genre, platform, isMultiplayerGame)
         End If
     End Sub
+
 
 End Class

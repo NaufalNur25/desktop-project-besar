@@ -44,39 +44,44 @@ Partial Class GamesForm
         RefreshButton = New Button()
         HapusButton = New Button()
         dgvGames = New DataGridView()
+        EditButton = New Button()
         GroupBox1.SuspendLayout()
         CType(dgvGames, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' TxtPlatform
         ' 
-        TxtPlatform.Location = New Point(52, 312)
+        TxtPlatform.Location = New Point(46, 234)
+        TxtPlatform.Margin = New Padding(3, 2, 3, 2)
         TxtPlatform.Name = "TxtPlatform"
-        TxtPlatform.Size = New Size(457, 27)
+        TxtPlatform.Size = New Size(400, 23)
         TxtPlatform.TabIndex = 53
         ' 
         ' TxtGenre
         ' 
-        TxtGenre.Location = New Point(540, 242)
+        TxtGenre.Location = New Point(472, 182)
+        TxtGenre.Margin = New Padding(3, 2, 3, 2)
         TxtGenre.Name = "TxtGenre"
-        TxtGenre.Size = New Size(479, 27)
+        TxtGenre.Size = New Size(420, 23)
         TxtGenre.TabIndex = 52
         ' 
         ' CbMultiplayerGame
         ' 
         CbMultiplayerGame.AutoSize = True
-        CbMultiplayerGame.Location = New Point(540, 314)
+        CbMultiplayerGame.Location = New Point(472, 236)
+        CbMultiplayerGame.Margin = New Padding(3, 2, 3, 2)
         CbMultiplayerGame.Name = "CbMultiplayerGame"
-        CbMultiplayerGame.Size = New Size(154, 24)
+        CbMultiplayerGame.Size = New Size(124, 19)
         CbMultiplayerGame.TabIndex = 51
         CbMultiplayerGame.Text = "Multiplayer games"
         CbMultiplayerGame.UseVisualStyleBackColor = True
         ' 
         ' PublishButton
         ' 
-        PublishButton.Location = New Point(52, 355)
+        PublishButton.Location = New Point(46, 266)
+        PublishButton.Margin = New Padding(3, 2, 3, 2)
         PublishButton.Name = "PublishButton"
-        PublishButton.Size = New Size(967, 43)
+        PublishButton.Size = New Size(846, 32)
         PublishButton.TabIndex = 50
         PublishButton.Text = "Publish"
         PublishButton.UseVisualStyleBackColor = True
@@ -84,146 +89,153 @@ Partial Class GamesForm
         ' Label8
         ' 
         Label8.AutoSize = True
-        Label8.Location = New Point(540, 219)
+        Label8.Location = New Point(472, 164)
         Label8.Name = "Label8"
-        Label8.Size = New Size(48, 20)
+        Label8.Size = New Size(38, 15)
         Label8.TabIndex = 49
         Label8.Text = "Genre"
         ' 
         ' Label7
         ' 
         Label7.AutoSize = True
-        Label7.Location = New Point(52, 289)
+        Label7.Location = New Point(46, 217)
         Label7.Name = "Label7"
-        Label7.Size = New Size(66, 20)
+        Label7.Size = New Size(53, 15)
         Label7.TabIndex = 48
         Label7.Text = "Platform"
         ' 
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Location = New Point(49, 219)
+        Label6.Location = New Point(43, 164)
         Label6.Name = "Label6"
-        Label6.Size = New Size(64, 20)
+        Label6.Size = New Size(51, 15)
         Label6.TabIndex = 47
         Label6.Text = "Price list"
         ' 
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(540, 156)
+        Label5.Location = New Point(472, 117)
         Label5.Name = "Label5"
-        Label5.Size = New Size(96, 20)
+        Label5.Size = New Size(73, 15)
         Label5.TabIndex = 46
         Label5.Text = "Release Date"
         ' 
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(540, 93)
+        Label4.Location = New Point(472, 70)
         Label4.Name = "Label4"
-        Label4.Size = New Size(113, 20)
+        Label4.Size = New Size(91, 15)
         Label4.TabIndex = 45
         Label4.Text = "Publisher Name"
         ' 
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(540, 32)
+        Label3.Location = New Point(472, 24)
         Label3.Name = "Label3"
-        Label3.Size = New Size(122, 20)
+        Label3.Size = New Size(95, 15)
         Label3.TabIndex = 44
         Label3.Text = "Developer Name"
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(49, 93)
+        Label2.Location = New Point(43, 70)
         Label2.Name = "Label2"
-        Label2.Size = New Size(128, 20)
+        Label2.Size = New Size(101, 15)
         Label2.TabIndex = 43
         Label2.Text = "Game Description"
         ' 
         ' RelaeseDateTimePicker
         ' 
-        RelaeseDateTimePicker.Location = New Point(540, 179)
+        RelaeseDateTimePicker.Location = New Point(472, 134)
+        RelaeseDateTimePicker.Margin = New Padding(3, 2, 3, 2)
         RelaeseDateTimePicker.Name = "RelaeseDateTimePicker"
-        RelaeseDateTimePicker.Size = New Size(479, 27)
+        RelaeseDateTimePicker.Size = New Size(420, 23)
         RelaeseDateTimePicker.TabIndex = 42
         ' 
         ' TxtPriceList
         ' 
-        TxtPriceList.Location = New Point(52, 242)
+        TxtPriceList.Location = New Point(46, 182)
+        TxtPriceList.Margin = New Padding(3, 2, 3, 2)
         TxtPriceList.Name = "TxtPriceList"
-        TxtPriceList.Size = New Size(457, 27)
+        TxtPriceList.Size = New Size(400, 23)
         TxtPriceList.TabIndex = 41
         ' 
         ' TxtPubName
         ' 
-        TxtPubName.Location = New Point(540, 116)
+        TxtPubName.Location = New Point(472, 87)
+        TxtPubName.Margin = New Padding(3, 2, 3, 2)
         TxtPubName.Name = "TxtPubName"
-        TxtPubName.Size = New Size(479, 27)
+        TxtPubName.Size = New Size(420, 23)
         TxtPubName.TabIndex = 40
         ' 
         ' TxtDevName
         ' 
-        TxtDevName.Location = New Point(540, 55)
+        TxtDevName.Location = New Point(472, 41)
+        TxtDevName.Margin = New Padding(3, 2, 3, 2)
         TxtDevName.Name = "TxtDevName"
-        TxtDevName.Size = New Size(479, 27)
+        TxtDevName.Size = New Size(420, 23)
         TxtDevName.TabIndex = 39
         ' 
         ' TxtDesc
         ' 
-        TxtDesc.Location = New Point(49, 116)
+        TxtDesc.Location = New Point(43, 87)
+        TxtDesc.Margin = New Padding(3, 2, 3, 2)
         TxtDesc.Multiline = True
         TxtDesc.Name = "TxtDesc"
-        TxtDesc.Size = New Size(460, 90)
+        TxtDesc.Size = New Size(403, 68)
         TxtDesc.TabIndex = 38
         ' 
         ' TxtGameName
         ' 
-        TxtGameName.Location = New Point(49, 55)
+        TxtGameName.Location = New Point(43, 41)
+        TxtGameName.Margin = New Padding(3, 2, 3, 2)
         TxtGameName.Name = "TxtGameName"
-        TxtGameName.Size = New Size(460, 27)
+        TxtGameName.Size = New Size(403, 23)
         TxtGameName.TabIndex = 37
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(49, 32)
+        Label1.Location = New Point(43, 24)
         Label1.Name = "Label1"
-        Label1.Size = New Size(92, 20)
+        Label1.Size = New Size(73, 15)
         Label1.TabIndex = 36
         Label1.Text = "Game Name"
         ' 
         ' GroupBox1
         ' 
+        GroupBox1.Controls.Add(EditButton)
         GroupBox1.Controls.Add(RefreshButton)
         GroupBox1.Controls.Add(HapusButton)
         GroupBox1.Controls.Add(dgvGames)
-        GroupBox1.Location = New Point(12, 420)
+        GroupBox1.Location = New Point(10, 315)
+        GroupBox1.Margin = New Padding(3, 2, 3, 2)
         GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(1049, 313)
+        GroupBox1.Padding = New Padding(3, 2, 3, 2)
+        GroupBox1.Size = New Size(918, 235)
         GroupBox1.TabIndex = 54
         GroupBox1.TabStop = False
         GroupBox1.Text = "Game List"
         ' 
         ' RefreshButton
         ' 
-        RefreshButton.Location = New Point(98, 275)
-        RefreshButton.Margin = New Padding(3, 4, 3, 4)
+        RefreshButton.Location = New Point(86, 206)
         RefreshButton.Name = "RefreshButton"
-        RefreshButton.Size = New Size(86, 31)
+        RefreshButton.Size = New Size(75, 23)
         RefreshButton.TabIndex = 5
         RefreshButton.Text = "Refresh"
         RefreshButton.UseVisualStyleBackColor = True
         ' 
         ' HapusButton
         ' 
-        HapusButton.Location = New Point(6, 275)
-        HapusButton.Margin = New Padding(3, 4, 3, 4)
+        HapusButton.Location = New Point(5, 206)
         HapusButton.Name = "HapusButton"
-        HapusButton.Size = New Size(86, 31)
+        HapusButton.Size = New Size(75, 23)
         HapusButton.TabIndex = 4
         HapusButton.Text = "Hapus"
         HapusButton.UseVisualStyleBackColor = True
@@ -231,18 +243,26 @@ Partial Class GamesForm
         ' dgvGames
         ' 
         dgvGames.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        dgvGames.Location = New Point(6, 27)
-        dgvGames.Margin = New Padding(3, 4, 3, 4)
+        dgvGames.Location = New Point(5, 20)
         dgvGames.Name = "dgvGames"
         dgvGames.RowHeadersWidth = 51
-        dgvGames.Size = New Size(1037, 240)
+        dgvGames.Size = New Size(907, 180)
         dgvGames.TabIndex = 3
+        ' 
+        ' EditButton
+        ' 
+        EditButton.Location = New Point(167, 206)
+        EditButton.Name = "EditButton"
+        EditButton.Size = New Size(75, 23)
+        EditButton.TabIndex = 6
+        EditButton.Text = "Edit"
+        EditButton.UseVisualStyleBackColor = True
         ' 
         ' GamesForm
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1073, 745)
+        ClientSize = New Size(939, 559)
         Controls.Add(GroupBox1)
         Controls.Add(TxtPlatform)
         Controls.Add(TxtGenre)
@@ -262,7 +282,6 @@ Partial Class GamesForm
         Controls.Add(TxtDesc)
         Controls.Add(TxtGameName)
         Controls.Add(Label1)
-        Margin = New Padding(3, 4, 3, 4)
         Name = "GamesForm"
         Text = "GamesForm"
         GroupBox1.ResumeLayout(False)
@@ -293,4 +312,5 @@ Partial Class GamesForm
     Friend WithEvents RefreshButton As Button
     Friend WithEvents HapusButton As Button
     Friend WithEvents dgvGames As DataGridView
+    Friend WithEvents EditButton As Button
 End Class
